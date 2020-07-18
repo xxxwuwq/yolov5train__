@@ -129,7 +129,7 @@ def train(hyp):
 
         # load results
         if ckpt.get('training_results') is not None:
-            with open(results_file, 'w') as file:
+            with open(results_file, 'wb') as file:
                 file.write(ckpt['training_results'])  # write results.txt
 
         start_epoch = ckpt['epoch'] + 1
@@ -313,7 +313,7 @@ def train(hyp):
         # Save model
         save = (not opt.nosave) or (final_epoch and not opt.evolve)
         if save:
-            with open(results_file, 'r') as f:  # create checkpoint
+            with open(results_file, 'rb') as f:  # create checkpoint
                 ckpt = {'epoch': epoch,
                         'best_fitness': best_fitness,
                         'training_results': f.read(),
