@@ -27,7 +27,7 @@ best = wdir + 'best.pt'
 results_file = 'results.txt'
 
 # Hyperparameters
-hyp = {'lr0': 0.0001,  # initial learning rate (SGD=1E-2, Adam=1E-3)
+hyp = {'lr0': 0.0005,  # initial learning rate (SGD=1E-2, Adam=1E-3)
        'momentum': 0.937,  # SGD momentum
        'weight_decay': 5e-4,  # optimizer weight decay
        'giou': 0.05,  # giou loss gain
