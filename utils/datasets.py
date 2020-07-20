@@ -502,8 +502,8 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
             augment_hsv(img, hgain=hyp['hsv_h'], sgain=hyp['hsv_s'], vgain=hyp['hsv_v'])
 
             # Apply cutouts
-            # if random.random() < 0.9:
-            #     labels = cutout(img, labels)
+            if random.random() < 0.9:
+                labels = cutout(img, labels)
 
         nL = len(labels)  # number of labels
         if nL:
@@ -517,14 +517,14 @@ class LoadImagesAndLabels(Dataset):  # for training/testing
         if self.augment:
             # random left-right flip
             lr_flip = True
-            if lr_flip and random.random() < 0.6:
+            if lr_flip and random.random() < 0.7:
                 img = np.fliplr(img)
                 if nL:
                     labels[:, 1] = 1 - labels[:, 1]
 
             # random up-down flip
             ud_flip = True
-            if ud_flip and random.random() < 0.6:
+            if ud_flip and random.random() < 0.7:
                 img = np.flipud(img)
                 if nL:
                     labels[:, 2] = 1 - labels[:, 2]
